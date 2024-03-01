@@ -1,0 +1,10 @@
+# Python virtual environment
+.venv
+
+# Environment variables
+.env
+
+# Other files and directories to ignore
+__pycache__/
+*.pyc
+.DS_Store
