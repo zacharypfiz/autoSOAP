@@ -64,6 +64,6 @@ llm_chain = LLMChain(prompt=prompt, llm=llm)
 
 transcript = formatted_transcript
 
-response = llm_chain.run(transcript)
+response = llm_chain.invoke(transcript)
 
 print(response)

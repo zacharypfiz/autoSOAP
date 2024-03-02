@@ -1,0 +1,45 @@
+{
+    "SOAP Note": {
+        "Subjective": {
+            "Chief Complaint (CC)": "Headaches and fatigue for the past couple of weeks.",
+            "History of Present Illness (HPI)": "Patient reports headaches occurring in the late afternoon, lasting several hours, with constant pressure in the front. Fatigue is constant, feeling drained even after a full night's sleep. No specific triggers identified.",
+            "History": {
+                "Medical history": "Headaches, fatigue, skipping breakfast, increased screen time.",
+                "Surgical history": "None reported.",
+                "Family history": "Not provided.",
+                "Social History": "Patient works on a computer, skips breakfast, drinks coffee in the morning, and may not be drinking enough water."
+            },
+            "Review of Systems (ROS)": {
+                "General": "Fatigue.",
+                "Neurological": "Headaches."
+            },
+            "Current Medications": "None reported.",
+            "Allergies": "None reported."
+        },
+        "Objective": {
+            "Vital Signs": "Not provided.",
+            "Physical Exam": "Not provided.",
+            "Laboratory Data": "CBC and thyroid function tests pending.",
+            "Imaging": "None reported."
+        },
+        "Assessment": {
+            "Problem": "1. Chronic headaches. 2. Fatigue.",
+            "Differential Diagnosis": {
+                "Chronic headaches": "1. Tension-type headache. 2. Computer vision syndrome. 3. Dehydration. 4. Sleep deprivation.",
+                "Fatigue": "1. Sleep disorders. 2. Nutritional deficiencies. 3. Underlying medical conditions."
+            }
+        },
+        "Plan": {
+            "Chronic headaches": {
+                "Tests": "CBC and thyroid function tests.",
+                "Therapy": "Increase water intake, manage screen time, take regular breaks, stop electronic device use before bed.",
+                "Patient Education": "Encourage balanced diet, hydration, regular meals, and light exercise."
+            },
+            "Fatigue": {
+                "Tests": "CBC and thyroid function tests.",
+                "Therapy": "Improve sleep quality, manage screen time, take regular breaks, stop electronic device use before bed, incorporate light exercise.",
+                "Patient Education": "Encourage balanced diet, hydration, regular meals, and light exercise."
+            }
+        }
+    }
+}
