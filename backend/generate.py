@@ -2,9 +2,8 @@ import json
 import os
 
 from dotenv import load_dotenv
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
-from langchain_openai import OpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
 
 # Load environment variables from .env file
 load_dotenv()
@@ -28,7 +27,7 @@ if not openai_api_key:
 # Prompt template
 template = """Transcript in JSON: {transcript}
 
-Context: Using the detailed information from a telehealth call transcript provided, generate a SOAP note that adheres to the following structured format, including all relevant medical and clinical information under each heading and subheading as detailed below:
+Context: Using only the detailed information from a telehealth call transcript provided without hallucinating and leaving fields blank if you don't have the required information, generate a SOAP note that adheres to the following structured format, including all relevant medical and clinical information under each heading and subheading as detailed below:
 
 1. Subjective (S):
     - Chief Complaint (CC): Summarize the patient's primary complaint or reason for the visit in one or two sentences.
@@ -48,22 +47,20 @@ Context: Using the detailed information from a telehealth call transcript provid
 4. Plan (P):
     - For each problem listed in the Assessment, detail the necessary tests, therapy (including medications), specialist referrals or consults, and patient education or counseling planned.
 
-Ensure the generated SOAP note is organized, concise, and clearly separates each section and subheading as outlined. The note should accurately reflect the patient's condition and plan of care based on the subjective and objective information provided.
+Ensure the generated SOAP note is organized, concise, and clearly separates each section and subheading as outlined. The note should accurately reflect the patient's condition and plan of care based only on the subjective and objective information provided.
 
 Generate the SOAP note based on the structured format and detailed instructions provided above."""
 
-prompt = PromptTemplate.from_template(template)
+prompt = ChatPromptTemplate.from_template(template)
 
 # Initialize the Langchain client with your API key
-llm = OpenAI(
+model = ChatOpenAI(
     temperature=0, model_name="gpt-3.5-turbo-0125", openai_api_key=openai_api_key
 )
 
 # Generate SOAP note
-llm_chain = LLMChain(prompt=prompt, llm=llm)
+chain = prompt | model
 
-transcript = formatted_transcript
+response = chain.invoke({"transcript": formatted_transcript})
 
-response = llm_chain.invoke(transcript)
-
-print(response)
+print(response.content)
