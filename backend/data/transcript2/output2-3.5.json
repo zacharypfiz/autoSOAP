@@ -1,0 +1,80 @@
+{
+    "SOAP Note": {
+        "Subjective": {
+            "Chief Complaint (CC)": "Patient presents with multiple concerns including high blood pressure, right arm pain, stomach pain, mouth sores, and tremors.",
+            "History of Present Illness (HPI)": "Patient reports improvement in high blood pressure and right arm symptoms. Stomach pain has improved with Tylenol use and cessation of Aleve. Mouth sores come and go. Tremors in upper body noted since starting Lexapro.",
+            "History": {
+                "Medical history": "High blood pressure, right arm pain, stomach pain, mouth sores, tremors.",
+                "Surgical history": "No significant surgical history reported.",
+                "Family history": "No relevant family medical history provided.",
+                "Social History": "Patient lives at home, retired. No significant education or employment history provided. Reports taking Tylenol as needed for pain."
+            },
+            "Review of Systems (ROS)": {
+                "General": "Reports overall improvement in symptoms.",
+                "Gastrointestinal": "Stomach pain improved with Tylenol, taking Tums and Mylanta for acid reflux.",
+                "Musculoskeletal": "Right arm pain has resolved, possible rotator cuff injury noted on x-rays.",
+                "Neurological": "Tremors in upper body since starting Lexapro.",
+                "Dermatological": "Mouth sores come and go."
+            },
+            "Current Medications, Allergies": {
+                "Current Medications": "Tylenol as needed, Tums, Mylanta, Lexapro.",
+                "Allergies": "No known allergies."
+            }
+        },
+        "Objective": {
+            "Vital Signs": {
+                "Blood Pressure": "Improved from previous visit.",
+                "Heart Rate": "Within normal limits.",
+                "Respiratory Rate": "Within normal limits.",
+                "Temperature": "Not provided."
+            },
+            "Physical Exam Findings": {
+                "Right Arm": "Pain resolved, possible rotator cuff injury.",
+                "Mouth": "Recurrent mouth sores noted.",
+                "Tremors": "No tremors observed during exam."
+            },
+            "Laboratory Data": "No laboratory data provided.",
+            "Imaging Results": "X-rays show degenerative changes in neck and right shoulder, possible rotator cuff injury."
+        },
+        "Assessment": {
+            "Problem": [
+                "1. High blood pressure",
+                "2. Possible rotator cuff injury",
+                "3. Stomach pain",
+                "4. Mouth sores",
+                "5. Tremors"
+            ],
+            "Differential Diagnosis": {
+                "High blood pressure": "White coat hypertension, anxiety-induced.",
+                "Rotator cuff injury": "Degenerative changes, possible injury.",
+                "Stomach pain": "Possible acid reflux, gastritis.",
+                "Mouth sores": "Chronic irritation, denture-related.",
+                "Tremors": "Medication-induced, side effect of Lexapro."
+            }
+        },
+        "Plan": {
+            "High blood pressure": {
+                "Tests": "Monitor blood pressure at home.",
+                "Therapy": "Continue current management, consider alternative medications if needed.",
+                "Education": "Discuss white coat hypertension and anxiety management techniques."
+            },
+            "Rotator cuff injury": {
+                "Tests": "Further evaluation if symptoms worsen.",
+                "Therapy": "Physical therapy, pain management.",
+                "Referrals": "Orthopedic consultation if needed."
+            },
+            "Stomach pain": {
+                "Therapy": "Continue Tums and Mylanta, consider further evaluation if symptoms persist.",
+                "Education": "Discuss dietary modifications for acid reflux."
+            },
+            "Mouth sores": {
+                "Therapy": "Monitor for changes, consider dental evaluation.",
+                "Education": "Discuss denture care and oral hygiene."
+            },
+            "Tremors": {
+                "Therapy": "Monitor for changes, consider medication adjustment if tremors persist.",
+                "Education": "Discuss potential side effects of Lexapro."
+            }
+        }
+    }
+}

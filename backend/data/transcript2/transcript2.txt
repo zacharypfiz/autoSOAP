@@ -1,0 +1,41 @@
+Doctor: I hear someone has a birthday coming up, how old are you turning, ma'am?
+Patient: I'll be ninety later this month, doctor. 
+Doctor: You're here for a follow up not very long after your first visit. What seems to be the problem today? 
+Patient: Well, actually, my high blood pressure and right arm symptoms are basically gone. 
+Doctor: Great, I saw your blood pressure reading for today, and it's much better. Are you taking the higher dose of Mavik we recommended? 
+Patient: No, I'm not taking that right now. 
+Doctor: How did you tolerate the higher dose? 
+Patient: I didn't feel well at all, so I just went back to the old dose. 
+Doctor: That was one M G per day, correct? 
+Patient: Yes, doctor. I do think I could have some white coat high blood pressure. Doctors' offices make me nervous. 
+Doctor: That does happen. Here, try this sample of Tarka, please. 
+Patient: What is this for, doctor? 
+Doctor: Well, since you're taking the Mavik plus verapamil, you can switch over to Tarka, which is the combined version of the two drugs. 
+Patient: I can't take these, doctor. They're too big. 
+Guest_family: Hello doctor, I'm her daughter. Just so you know, we check her blood pressure at home periodically and it's always similar to that reading. 
+Doctor: Good, so back to that right arm, how is that doing today?
+Patient: Well, that pain is basically gone now, I think it had to do with that muscle problem back in my right shoulder blade. 
+Doctor: Did you have x rays taken today? 
+Patient: Yes, the tech brought me back right before you came in. 
+Doctor: Good, I have the images right here. 
+Patient: What do they show, doctor?
+Doctor: Well, these x rays of the neck and right shoulder show some degenerative changes, and possibly some kind of rotator cuff injury. 
+Patient: What makes you think there's an injury? 
+Doctor: Well, look right here. The humeral head is pretty high in the glenoid in the right shoulder, but do you have any pain here? 
+Patient: No, none. 
+Doctor: Then we won't worry about it. 
+Patient: I am having this stomach pain though, doctor.
+Doctor: How has this pain developed and progressed recently? 
+Patient: Well, it's improved somewhat with me not taking Aleve anymore. 
+Doctor: What medicines are you taking right now, then? 
+Patient: Right know, I'm just taking Tylenol as needed. That seems to be enough for me. 
+Doctor: Do you think this could be acid reflux, or heartburn?
+Patient: No, but I take Tums, um, three times a day, and Mylanta at night. Oh yeah, I have these sores in my mouth, can you take a look? 
+Doctor: I see. How long have you worn dentures? 
+Patient: Oh I couldn't even tell you, it's been many, many years. 
+Doctor: Do they come and go, the sores? 
+Patient: Yes, one will come, then it'll heal up, then another. 
+Doctor: Okay, we'll keep an eye on it. 
+Patient: And doctor, since I've been taking the Lexapro, I have some tremors on basically my whole body, at least the upper body, like my torso and arms. 
+Doctor: It's hard to tell if you have a tremor today, ma'am, but do you think the Lexapro is helping otherwise? 
+Patient: Yes, we think so.

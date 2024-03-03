@@ -9,7 +9,7 @@ from langchain_openai import ChatOpenAI
 load_dotenv()
 
 # Load the trasncript JSON data
-with open("./transcript.json", "r") as file:
+with open("./data/transcript.json", "r") as file:
     data = json.load(file)
 
 # Extract and format the transcript text
