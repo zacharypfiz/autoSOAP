@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import { useFormState, useFormStatus } from "react-dom";
-
-import { AccountCard, AccountCardFooter, AccountCardBody } from "./AccountCard";
-import { updateUser } from "@/lib/actions/users";
-
-import { toast } from "sonner";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { updateUser } from "@/lib/actions/users";
+import { useFormState, useFormStatus } from "react-dom";
+import { toast } from "sonner";
+
+import { AccountCard, AccountCardBody, AccountCardFooter } from "./AccountCard";
 
 export default function UpdateNameCard({ name }: { name: string }) {
   const [state, formAction] = useFormState(updateUser, {

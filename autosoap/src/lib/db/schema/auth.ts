@@ -1,24 +1,23 @@
-import { z } from "zod";  
-import { pgTable, timestamp, text } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { z } from "zod";
 
 export const users = pgTable("user", {
-	id: text("id").primaryKey(),
-        email: text("email").notNull().unique(),
-        hashedPassword: text("hashed_password").notNull(),
-        name: text("name"),
+  id: text("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  hashedPassword: text("hashed_password").notNull(),
+  name: text("name"),
 });
 
 export const sessions = pgTable("session", {
-	id: text("id").primaryKey(),
-	userId: text("user_id")
-		.notNull()
-		.references(() => users.id),
-	expiresAt: timestamp("expires_at", {
-		withTimezone: true,
-		mode: "date"
-	}).notNull()
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => users.id),
+  expiresAt: timestamp("expires_at", {
+    withTimezone: true,
+    mode: "date",
+  }).notNull(),
 });
-
 
 export const authenticationSchema = z.object({
   email: z.string().email().min(5).max(31),

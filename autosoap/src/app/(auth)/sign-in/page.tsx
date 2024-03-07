@@ -1,15 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useFormState } from "react-dom";
-import { useFormStatus } from "react-dom";
-
-import { signInAction } from "@/lib/actions/users";
-
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import AuthFormError from "@/components/auth/AuthFormError";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { signInAction } from "@/lib/actions/users";
+import { useFormState, useFormStatus } from "react-dom";
 
 export default function SignInPage() {
   const [state, formAction] = useFormState(signInAction, {
@@ -17,8 +14,8 @@ export default function SignInPage() {
   });
 
   return (
-    <main className="max-w-lg mx-auto my-4 bg-popover p-10">
-      <h1 className="text-2xl font-bold text-center">
+    <main className="mx-auto my-4 max-w-lg bg-popover p-10">
+      <h1 className="text-center text-2xl font-bold">
         Sign in to your account
       </h1>
       <AuthFormError state={state} />
@@ -35,7 +32,7 @@ export default function SignInPage() {
         <br />
         <SubmitButton />
       </form>
-      <div className="mt-4 text-sm text-center text-muted-foreground">
+      <div className="mt-4 text-center text-sm text-muted-foreground">
         Don&apos;t have an account yet?{" "}
         <Link
           href="/sign-up"

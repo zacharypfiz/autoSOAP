@@ -1,17 +1,13 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { createNote, deleteNote, updateNote } from "@/lib/api/notes/mutations";
 import {
-  createNote,
-  deleteNote,
-  updateNote,
-} from "@/lib/api/notes/mutations";
-import {
-  NoteId,
-  NewNoteParams,
-  UpdateNoteParams,
-  noteIdSchema,
   insertNoteParams,
+  NewNoteParams,
+  NoteId,
+  noteIdSchema,
+  UpdateNoteParams,
   updateNoteParams,
 } from "@/lib/db/schema/notes";
 

@@ -1,14 +1,10 @@
-
-import { type Note, type CompleteNote } from "@/lib/db/schema/notes";
-import { OptimisticAction } from "@/lib/utils";
 import { useOptimistic } from "react";
+import { type CompleteNote, type Note } from "@/lib/db/schema/notes";
+import { OptimisticAction } from "@/lib/utils";
 
 export type TAddOptimistic = (action: OptimisticAction<Note>) => void;
 
-export const useOptimisticNotes = (
-  notes: CompleteNote[],
-  
-) => {
+export const useOptimisticNotes = (notes: CompleteNote[]) => {
   const [optimisticNotes, addOptimisticNote] = useOptimistic(
     notes,
     (
@@ -17,11 +13,9 @@ export const useOptimisticNotes = (
     ): CompleteNote[] => {
       const { data } = action;
 
-      
-
       const optimisticNote = {
         ...data,
-        
+
         id: "optimistic",
       };
 

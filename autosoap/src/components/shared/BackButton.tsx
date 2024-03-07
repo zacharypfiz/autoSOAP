@@ -1,11 +1,9 @@
-
 "use client";
 
-import { ChevronLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-
+import { ChevronLeftIcon } from "lucide-react";
 
 export function useBackPath(currentResource: string) {
   const pathname = usePathname();

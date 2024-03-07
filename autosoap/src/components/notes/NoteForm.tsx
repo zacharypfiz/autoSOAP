@@ -1,32 +1,25 @@
-import { z } from "zod";
-
+import type { Note } from "@/lib/db/schema/notes";
+import type { Action } from "@/lib/utils";
 import { useState, useTransition } from "react";
-import { useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-import { useValidatedForm } from "@/lib/hooks/useValidatedForm";
-
-import { type Action, cn } from "@/lib/utils";
 import { type TAddOptimistic } from "@/app/(app)/notes/useOptimisticNotes";
-
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { useBackPath } from "@/components/shared/BackButton";
-
-
-
-
-import { type Note, insertNoteParams } from "@/lib/db/schema/notes";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   createNoteAction,
   deleteNoteAction,
   updateNoteAction,
 } from "@/lib/actions/notes";
-
+import { insertNoteParams } from "@/lib/db/schema/notes";
+import { useValidatedForm } from "@/lib/hooks/useValidatedForm";
+import { cn } from "@/lib/utils";
+import { useFormStatus } from "react-dom";
+import { toast } from "sonner";
+import { z } from "zod";
 
 const NoteForm = ({
-  
   note,
   openModal,
   closeModal,
@@ -34,7 +27,7 @@ const NoteForm = ({
   postSuccess,
 }: {
   note?: Note | null;
-  
+
   openModal?: (note?: Note) => void;
   closeModal?: () => void;
   addOptimistic?: TAddOptimistic;
@@ -43,13 +36,12 @@ const NoteForm = ({
   const { errors, hasErrors, setErrors, handleChange } =
     useValidatedForm<Note>(insertNoteParams);
   const editing = !!note?.id;
-  
+
   const [isDeleting, setIsDeleting] = useState(false);
   const [pending, startMutation] = useTransition();
 
   const router = useRouter();
   const backpath = useBackPath("notes");
-
 
   const onSuccess = (
     action: Action,
@@ -73,7 +65,7 @@ const NoteForm = ({
     setErrors(null);
 
     const payload = Object.fromEntries(data.entries());
-    const noteParsed = await insertNoteParams.safeParseAsync({  ...payload });
+    const noteParsed = await insertNoteParams.safeParseAsync({ ...payload });
     if (!noteParsed.success) {
       setErrors(noteParsed?.error.flatten().fieldErrors);
       return;
@@ -90,10 +82,11 @@ const NoteForm = ({
     };
     try {
       startMutation(async () => {
-        addOptimistic && addOptimistic({
-          data: pendingNote,
-          action: editing ? "update" : "create",
-        });
+        addOptimistic &&
+          addOptimistic({
+            data: pendingNote,
+            action: editing ? "update" : "create",
+          });
 
         const error = editing
           ? await updateNoteAction({ ...values, id: note.id })
@@ -101,7 +94,7 @@ const NoteForm = ({
 
         const errorFormatted = {
           error: error ?? "Error",
-          values: pendingNote 
+          values: pendingNote,
         };
         onSuccess(
           editing ? "update" : "create",
@@ -118,7 +111,7 @@ const NoteForm = ({
   return (
     <form action={handleSubmit} onChange={handleChange} className={"space-y-8"}>
       {/* Schema fields start */}
-              <div>
+      <div>
         <Label
           className={cn(
             "mb-2 inline-block",
@@ -134,12 +127,12 @@ const NoteForm = ({
           defaultValue={note?.name ?? ""}
         />
         {errors?.name ? (
-          <p className="text-xs text-destructive mt-2">{errors.name[0]}</p>
+          <p className="mt-2 text-xs text-destructive">{errors.name[0]}</p>
         ) : (
           <div className="h-6" />
         )}
       </div>
-        <div>
+      <div>
         <Label
           className={cn(
             "mb-2 inline-block",
@@ -155,7 +148,7 @@ const NoteForm = ({
           defaultValue={note?.content ?? ""}
         />
         {errors?.content ? (
-          <p className="text-xs text-destructive mt-2">{errors.content[0]}</p>
+          <p className="mt-2 text-xs text-destructive">{errors.content[0]}</p>
         ) : (
           <div className="h-6" />
         )}

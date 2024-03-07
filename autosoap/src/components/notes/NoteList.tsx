@@ -1,31 +1,22 @@
 "use client";
 
+import type { Note } from "@/lib/db/schema/notes";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-import { cn } from "@/lib/utils";
-import { type Note, CompleteNote } from "@/lib/db/schema/notes";
-import Modal from "@/components/shared/Modal";
-
 import { useOptimisticNotes } from "@/app/(app)/notes/useOptimisticNotes";
+import Modal from "@/components/shared/Modal";
 import { Button } from "@/components/ui/button";
-import NoteForm from "./NoteForm";
+import { CompleteNote } from "@/lib/db/schema/notes";
+import { cn } from "@/lib/utils";
 import { PlusIcon } from "lucide-react";
+
+import NoteForm from "./NoteForm";
 
 type TOpenModal = (note?: Note) => void;
 
-export default function NoteList({
-  notes,
-   
-}: {
-  notes: CompleteNote[];
-   
-}) {
-  const { optimisticNotes, addOptimisticNote } = useOptimisticNotes(
-    notes,
-     
-  );
+export default function NoteList({ notes }: { notes: CompleteNote[] }) {
+  const { optimisticNotes, addOptimisticNote } = useOptimisticNotes(notes);
   const [open, setOpen] = useState(false);
   const [activeNote, setActiveNote] = useState<Note | null>(null);
   const openModal = (note?: Note) => {
@@ -46,7 +37,6 @@ export default function NoteList({
           addOptimistic={addOptimisticNote}
           openModal={openModal}
           closeModal={closeModal}
-          
         />
       </Modal>
       <div className="absolute right-0 top-0 ">
@@ -59,11 +49,7 @@ export default function NoteList({
       ) : (
         <ul>
           {optimisticNotes.map((note) => (
-            <Note
-              note={note}
-              key={note.id}
-              openModal={openModal}
-            />
+            <Note note={note} key={note.id} openModal={openModal} />
           ))}
         </ul>
       )}
@@ -82,16 +68,13 @@ const Note = ({
   const deleting = note.id === "delete";
   const mutating = optimistic || deleting;
   const pathname = usePathname();
-  const basePath = pathname.includes("notes")
-    ? pathname
-    : pathname + "/notes/";
-
+  const basePath = pathname.includes("notes") ? pathname : pathname + "/notes/";
 
   return (
     <li
       className={cn(
-        "flex justify-between my-2",
-        mutating ? "opacity-30 animate-pulse" : "",
+        "my-2 flex justify-between",
+        mutating ? "animate-pulse opacity-30" : "",
         deleting ? "text-destructive" : "",
       )}
     >
@@ -99,9 +82,7 @@ const Note = ({
         <div>{note.name}</div>
       </div>
       <Button variant={"link"} asChild>
-        <Link href={ basePath + "/" + note.id }>
-          Edit
-        </Link>
+        <Link href={basePath + "/" + note.id}>Edit</Link>
       </Button>
     </li>
   );
@@ -118,7 +99,8 @@ const EmptyState = ({ openModal }: { openModal: TOpenModal }) => {
       </p>
       <div className="mt-6">
         <Button onClick={() => openModal()}>
-          <PlusIcon className="h-4" /> New Notes </Button>
+          <PlusIcon className="h-4" /> New Notes{" "}
+        </Button>
       </div>
     </div>
   );

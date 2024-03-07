@@ -7,5 +7,5 @@ export default {
   driver: "pg",
   dbCredentials: {
     connectionString: env.DATABASE_URL.concat("?sslmode=require"),
-  }
+  },
 } satisfies Config;

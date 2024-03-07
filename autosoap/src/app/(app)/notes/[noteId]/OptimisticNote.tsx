@@ -2,23 +2,14 @@
 
 import { useOptimistic, useState } from "react";
 import { TAddOptimistic } from "@/app/(app)/notes/useOptimisticNotes";
+import NoteWithRichTextEditor from "@/components/notes/NoteEditor";
+import NoteForm from "@/components/notes/NoteForm";
+import Modal from "@/components/shared/Modal";
+import { Button } from "@/components/ui/button";
 import { type Note } from "@/lib/db/schema/notes";
 import { cn } from "@/lib/utils";
 
-import { Button } from "@/components/ui/button";
-import Modal from "@/components/shared/Modal";
-import NoteForm from "@/components/notes/NoteForm";
-import NoteWithRichTextEditor from "@/components/notes/NoteEditor";
-
-
-export default function OptimisticNote({
-  note,
-
-}: {
-  note: Note;
-
-
-}) {
+export default function OptimisticNote({ note }: { note: Note }) {
   const [open, setOpen] = useState(false);
   const openModal = (_?: Note) => {
     setOpen(true);
@@ -33,21 +24,20 @@ export default function OptimisticNote({
       <Modal open={open} setOpen={setOpen}>
         <NoteForm
           note={optimisticNote}
-
           closeModal={closeModal}
           openModal={openModal}
           addOptimistic={updateNote}
         />
       </Modal>
-      <div className="flex justify-between items-end mb-4">
-        <h1 className="font-semibold text-2xl">{optimisticNote.name}</h1>
+      <div className="mb-4 flex items-end justify-between">
+        <h1 className="text-2xl font-semibold">{optimisticNote.name}</h1>
         <Button className="" onClick={() => setOpen(true)}>
           Edit
         </Button>
       </div>
       <pre
         className={cn(
-          "bg-secondary p-4 rounded-lg break-all text-wrap",
+          "text-wrap break-all rounded-lg bg-secondary p-4",
           optimisticNote.id === "optimistic" ? "animate-pulse" : "",
         )}
       >
