@@ -24,7 +24,7 @@ const NoteWithRichTextEditor = ({ note }: NoteProps) => {
         extensions: [StarterKit,],
     });
 
-    const [content, setContent] = useState("Hello"); // Content state to be updated by the editor
+    const [content, setContent] = useState(note.content || ""); // Content state to be updated by the editor
 
     const [debouncedContent] = useDebounce(content, 500);
 
